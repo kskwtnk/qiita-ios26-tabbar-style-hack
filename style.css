@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  padding: 3rem;
+}
+
+/* 画面いっぱいに広がる背景 */
+.background {
+  position: fixed;
+  background-color: #999;
+  inset: -20px; /* 0だと意味不明な隙間が発生するので少し余裕を持たせて画面より大きく描画 */
+  z-index: -1;
+}
+
+.for-status-bars {
+  position: fixed;
+  top: 0; /* top: 0だとstatus barsが透けなくなる */
+  pointer-events: none;
+  height: 5px; /* 4pxだと効かない */
+  width: 100%;
+  background-color: #000;
+  mix-blend-mode: lighten; /* 黒をlightenで被せることで色の影響が出ないようにしている */
+}
+
+.for-tab-bars {
+  position: fixed;
+  bottom: 0; /* bottom: 0だとstatus barsが透けなくなる */
+  pointer-events: none;
+  height: 4px; /* 3pxだと効かない */
+  width: 100%;
+  background-color: #000;
+  mix-blend-mode: lighten; /* 黒をlightenで被せることで色の影響が出ないようにしている */
+}
